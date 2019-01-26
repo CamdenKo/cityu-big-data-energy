@@ -43,3 +43,13 @@ header {
   display: flex;
   height: 100%;
 }
+
+p {
+  color: var(--primary-color);
+  font-family: var(--secondary-font);
+  font-size: 1.3em;
+}
+
+.none {
+  display: none;
+}

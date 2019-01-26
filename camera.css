@@ -1,0 +1,63 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+canvas {
+  display: none !important;
+}
+
+#output {
+  display: inherit !important;
+}
+
+#loading {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 300px;
+  animation-name: fadeInOut;
+  animation-duration: 4s;
+  /* animation-timing-function: ease-in; */
+}
+
+#main {
+  display: flex;
+  padding: 15px;
+}
+
+.loadingBay {
+  visibility: hidden;
+  animation-name: fadeIn;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in;
+  animation-delay: 3.2s;
+  animation-fill-mode: forwards;
+  width: 100%;
+  height: 500px;
+}
+
+.points {
+  color: var(--primary-color);
+  font-family: var(--title-font);
+}

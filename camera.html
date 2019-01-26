@@ -2,6 +2,12 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="camera.css">
+    <link rel="stylesheet" href="spinner.css">
+    <link rel="stylesheet" href="odometer.css">
+    <link rel="stylesheet" href="loading-bar.css">
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Roboto:700" rel="stylesheet">
     <title>PoseNet - Camera Feed Demo</title>
     <style>
     .footer {
@@ -31,10 +37,6 @@
     .dg {
         display: none;
     }
-
-    #output {
-        margin-top: 100px;
-    }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -42,10 +44,20 @@
 <body>
     <div id="info" style='display:none'>
     </div>
-    <div id="loading">
-        Loading the model...
-    </div>
+    <header>
+            <div class="flex">
+              <h3>Paid Attention</h3>
+            </div>
+            <svg aria-hidden="true" focusable="false" width="1em" height="1em" fill="#00adb5" viewBox="0 0 12 12"><path d="M0 3h12.002v2H0zm0 5h12.002v2H0z"></path></svg>
+          </header>
 
+    <!-- <div id="loading">
+        <div class="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        <br />
+        <p>
+            Loading...
+        </p>
+    </div> -->
     <div id='main' style='display:none'>
         <video id="video" playsinline style=" -moz-transform: scaleX(-1);
         -o-transform: scaleX(-1);
@@ -54,7 +66,20 @@
         display: none;
         ">
         </video>
-        <canvas id="output" />
+        <canvas id="output"></canvas>
+        <div class="loadingBay">LOAD ME</div>
+    </div>
+    <h2 class="points">
+        Points:
+        <span id="odometer" class="odometer">1</span>
+    </h2>
+    <div class="progressBars">
+        <div class="progressBar">
+            <div class="ldBar" id="ldBar0" data-value="50"></div>
+            <div class="ldBar" id="ldBar1" data-value="50"></div>
+            <div class="ldBar" id="ldBar2" data-value="50"></div>
+            <div class="ldBar" id="ldBar3" data-value="50"></div>
+        </div>
     </div>
     <div class="footer">
         <div class="footer-text">
@@ -65,7 +90,10 @@
             </p>
         </div>
     </div>
+    <script src="loading-bar.js"></script>
     <script src="camera.js"></script>
+    <script src="odometer.js"></script>
+    <script src="points.js"></script>
 </body>
 
 </html>

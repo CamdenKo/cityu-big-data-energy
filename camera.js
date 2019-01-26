@@ -185,14 +185,6 @@ function setupGui(cameras, net) {
 }
 
 /**
- * Sets up a frames per second panel on the top-left of the window
- */
-function setupFPS() {
-  stats.showPanel(0);  // 0: fps, 1: ms, 2: mb, 3+: custom
-  document.body.appendChild(stats.dom);
-}
-
-/**
  * Feeds an image to posenet to estimate poses - this is where the magic
  * happens. This function loops with a requestAnimationFrame method.
  */
@@ -293,13 +285,13 @@ export async function bindPage() {
   // Load the PoseNet model weights with architecture 0.75
   const net = await posenet.load(0.75);
 
-  document.getElementById('loading').style.display = 'none';
-  document.getElementById('main').style.display = 'block';
+  document.getElementById('main').style.display = 'flex';
 
   let video;
 
   try {
     video = await loadVideo();
+    video.classList.add('none');
   } catch (e) {
     let info = document.getElementById('info');
     info.textContent = 'this browser does not support video capture,' +
@@ -307,9 +299,8 @@ export async function bindPage() {
     info.style.display = 'block';
     throw e;
   }
-
+  document.getElementById('loading').classList.add('none');
   setupGui([], net);
-  setupFPS();
   detectPoseInRealTime(video, net);
 }
 
