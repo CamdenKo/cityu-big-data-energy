@@ -54021,11 +54021,12 @@ function isiOS() {
 function isMobile() {
   return isAndroid() || isiOS();
 }
+
+let poses = [];
 /**
  * Loads a the camera to be used in the demo
  *
  */
-
 
 async function setupCamera() {
   if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
@@ -54185,7 +54186,6 @@ function detectPoseInRealTime(video, net) {
 
     const imageScaleFactor = guiState.input.imageScaleFactor;
     const outputStride = +guiState.input.outputStride;
-    let poses = [];
     let minPoseConfidence;
     let minPartConfidence;
 
@@ -54272,5 +54272,68 @@ async function bindPage() {
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia; // kick off the demo
 
 bindPage();
+let points = 1;
+const pointIncrement = 1;
+const bars = [];
+const pointsEle = document.getElementById('odometer');
+
+const randInt = (min, max) => Math.floor(Math.random() * (max - min) + min);
+
+const calcPercent = (cur, max) => {
+  if (cur >= max) return 100;
+  return Math.round(100 * cur / max);
+};
+
+const updateProgressBar = (bar, points) => {
+  bar.percent = calcPercent(points, bar.maxPoints);
+  bar.instance.set(bar.percent);
+  return bar;
+};
+
+const incrementPoints = wait => {
+  setTimeout(() => {
+    if (poses.length) {
+      points += pointIncrement;
+      pointsEle.innerHTML = points;
+      bars.forEach(bar => {
+        updateProgressBar(bar, points);
+      });
+    }
+
+    pointLoop();
+  }, wait);
+};
+
+const pointLoop = () => {
+  const lowestAmount = 1000;
+  const highestAmount = 5000;
+  incrementPoints(randInt(lowestAmount, highestAmount));
+};
+
+const genProgressBar = (id, points, maxPoints) => {
+  const toReturn = {
+    id,
+    maxPoints,
+    percent: calcPercent(points, maxPoints),
+    instance: new ldBar(id)
+  };
+  toReturn.instance.set(toReturn.percent);
+  return toReturn;
+};
+
+const initBars = () => {
+  const numBars = 4;
+
+  for (let bar = 0; bar < numBars; ++bar) {
+    bars.push(genProgressBar(`#ldBar${bar}`, 0, randInt(10, 100)));
+  }
+};
+
+const init = () => {
+  pointLoop();
+  initBars();
+};
+
+init();
 },{"babel-runtime/core-js/promise":"node_modules/babel-runtime/core-js/promise.js","@tensorflow-models/posenet":"node_modules/@tensorflow-models/posenet/dist/posenet.esm.js","dat.gui":"node_modules/dat.gui/build/dat.gui.module.js","stats.js":"node_modules/stats.js/build/stats.min.js","./demo_util":"demo_util.js"}]},{},["camera.js"], null)
 //# sourceMappingURL=/camera.283d5d54.map
