@@ -156,7 +156,7 @@ const initBars = () => {
   const numBars = 4;
 
   for (let bar = 0; bar < numBars; ++bar) {
-    bars.push(genProgressBar(`#ldBar${bar}`, 0, 10));
+    bars.push(genProgressBar(`#ldBar${bar}`, 0, randInt(10, 100)));
   }
 };
 

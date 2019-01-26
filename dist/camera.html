@@ -49,13 +49,13 @@
             <svg aria-hidden="true" focusable="false" width="1em" height="1em" fill="#00adb5" viewbox="0 0 12 12"><path d="M0 3h12.002v2H0zm0 5h12.002v2H0z"></path></svg>
           </header>
 
-    <!-- <div id="loading">
+    <div id="loading">
         <div class="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-        <br />
+        <br>
         <p>
             Loading...
         </p>
-    </div> -->
+    </div>
     <div id="main" style="display:none">
         <video id="video" playsinline="" style=" -moz-transform: scaleX(-1);
         -o-transform: scaleX(-1);
@@ -65,28 +65,17 @@
         ">
         </video>
         <canvas id="output"></canvas>
-        <div class="loadingBay">LOAD ME</div>
-    </div>
-    <h2 class="points">
-        Points:
-        <span id="odometer" class="odometer">1</span>
-    </h2>
-    <div class="progressBars">
-        <div class="progressBar">
-            <div class="ldBar" id="ldBar0" data-value="50"></div>
-            <div class="ldBar" id="ldBar1" data-value="50"></div>
-            <div class="ldBar" id="ldBar2" data-value="50"></div>
-            <div class="ldBar" id="ldBar3" data-value="50"></div>
-        </div>
-    </div>
-    <div class="footer">
-        <div class="footer-text">
-            <p>
-                PoseNet runs with either a <strong>single-pose</strong> or <strong>multi-pose</strong> detection algorithm. The single person pose detector is faster and more accurate but requires only one subject present in the image.
-                <br>
-                <br> The <strong>output stride</strong> and <strong>image scale factor</strong> have the largest effects on accuracy/speed. A <i>higher</i> output stride results in lower accuracy but higher speed. A <i>higher</i> image scale factor results in higher accuracy but lower speed.
-            </p>
-        </div>
+        <section class="rightSide">
+            <h2 class="points">
+                Points:
+                <span id="odometer" class="odometer">1</span>
+            </h2>
+            <div class="progressBars">
+                <div class="progressBar">
+                    <div class="ldBar label-center" id="ldBar0" data-value="50" data-preset="circle"></div>
+                </div>
+            </div>
+        </section>
     </div>
     <script src="/loading-bar.4c1cf2d3.js"></script>
     <script src="/camera.283d5d54.js"></script>

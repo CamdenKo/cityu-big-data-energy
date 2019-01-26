@@ -46,7 +46,7 @@ canvas {
   padding: 15px;
 }
 
-.loadingBay {
+.rightSide {
   visibility: hidden;
   animation-name: fadeIn;
   animation-duration: 1.5s;
@@ -60,4 +60,21 @@ canvas {
 .points {
   color: var(--primary-color);
   font-family: var(--title-font);
+}
+
+.progressBars {
+  font-family: var(--secondary-font);
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 50% 50%;
+}
+
+.progressBar {
+  height: 200px;
+  font-size: 23px;
+}
+
+.ldBar {
+  height: 100% !important;
+  width: 100% !important;
 }

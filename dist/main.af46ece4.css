@@ -53,3 +53,62 @@ p {
 .none {
   display: none;
 }
+
+section {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.content {
+  max-width: 1032px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.buttonContainer {
+  font-family: var(--title-font);
+  font-size: 18px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.button {
+  max-width: 100%;
+  line-height: 1.5;
+  padding: 11px 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+}
+
+.buttonP {
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  margin-right: 25px;
+}
+
+.buttonI {
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  padding: 10px 17px;
+  margin-left: 25px;
+}
+
+.arrowContainer {
+  margin-left: 15px;
+}
+
+.titleH {
+  margin: 140px 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.gridP {
+  display: flex;
+}
