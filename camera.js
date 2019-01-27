@@ -323,6 +323,9 @@ const calcPercent = (cur, max) => {
 const updateProgressBar = (bar, points) => {
   bar.percent = calcPercent(points, bar.maxPoints)
   bar.instance.set(bar.percent)
+  if (bar.percent === 100) {
+    document.getElementById('redeem').style.display = 'flex';
+  }
   return bar
 }
 
@@ -338,10 +341,10 @@ const incrementPoints = (wait) => {
     pointLoop()
   }, wait)
 }
+let lowestAmount = 3000
+let highestAmount = 7000
 
 const pointLoop = () => {
-  const lowestAmount = 1000
-  const highestAmount = 5000
   incrementPoints(randInt(lowestAmount, highestAmount))
 }
 
@@ -359,13 +362,24 @@ const genProgressBar = (id, points, maxPoints) => {
 const initBars = () => {
   const numBars = 4
   for (let bar = 0; bar < numBars; ++bar) {
-    bars.push(genProgressBar(`#ldBar${bar}`, 0, randInt(10, 100)))
+    bars.push(genProgressBar(`#ldBar${bar}`, 0, 25))
   }
+}
+
+const timeFrame = () => {
+  lowestAmount = 6000
+  highestAmount = 7000
+  const delay = 10000
+  setTimeout(() => {
+    lowestAmount = 500
+    highestAmount = 1500
+  }, delay)
 }
 
 const init = () => {
   pointLoop()
   initBars()
+  timeFrame()
 }
 
 init()

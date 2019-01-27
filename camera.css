@@ -38,6 +38,7 @@ canvas {
   margin-top: 300px;
   animation-name: fadeInOut;
   animation-duration: 4s;
+  font-weight: 400;
   /* animation-timing-function: ease-in; */
 }
 
@@ -65,16 +66,21 @@ canvas {
 .progressBars {
   font-family: var(--secondary-font);
   display: grid;
-  grid-template-rows: 50% 50%;
+  height: 100%;
   grid-template-columns: 50% 50%;
+  font-weight: 300;
 }
 
 .progressBar {
-  height: 200px;
+  height: 284px;
   font-size: 23px;
 }
 
 .ldBar {
   height: 100% !important;
   width: 100% !important;
+}
+
+.leightFont {
+  font-weight: 300;
 }

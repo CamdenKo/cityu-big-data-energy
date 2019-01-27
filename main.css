@@ -4,7 +4,7 @@
   --secondary-color: #393e46;
   --accent-color: #00adb5;
   --title-font: 'Roboto', sans-serif;
-  --secondary-font: 'EB Garamond', serif;
+  --secondary-font: 'Roboto', sans-serif;
 }
 
 body {
@@ -63,6 +63,7 @@ section {
   max-width: 1032px;
   box-sizing: border-box;
   margin: 0 auto;
+  margin-top: 156px;
 }
 
 .buttonContainer {
@@ -72,6 +73,7 @@ section {
   display: flex;
   justify-content: center;
   margin-top: 60px;
+  margin-left: -60px;
 }
 
 .button {
@@ -103,6 +105,8 @@ section {
 
 .titleH {
   margin: 140px 0;
+  text-align: left;
+  line-height: 90px;
 }
 
 a {
@@ -111,4 +115,14 @@ a {
 
 .gridP {
   display: flex;
+}
+
+.navT {
+  margin-left: 60px;
+}
+
+.logo {
+  transform: scale(0.03);
+  position: absolute;
+  left: -617px;
 }

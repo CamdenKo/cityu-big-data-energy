@@ -7,35 +7,37 @@
     <link rel="stylesheet" href="/spinner.d415f945.css">
     <link rel="stylesheet" href="/odometer.8cab8f53.css">
     <link rel="stylesheet" href="/loading-bar.c8bc5f2e.css">
-    <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Roboto:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
     <title>PoseNet - Camera Feed Demo</title>
     <style>.footer {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        color: black;
-    }
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            color: black;
+        }
 
-    .footer-text {
-        max-width: 600px;
-        text-align: center;
-        margin: auto;
-    }
+        .footer-text {
+            max-width: 600px;
+            text-align: center;
+            margin: auto;
+        }
 
-    @media only screen and (max-width: 600px) {
-      .footer-text, .dg {
-        display: none;
-      }
-    }
+        @media only screen and (max-width: 600px) {
 
-    #main {
-        text-align: center;
-    }
+            .footer-text,
+            .dg {
+                display: none;
+            }
+        }
 
-    .dg {
-        display: none;
-    }</style>
+        #main {
+            text-align: center;
+        }
+
+        .dg {
+            display: none;
+        }</style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -43,14 +45,27 @@
     <div id="info" style="display:none">
     </div>
     <header>
-            <div class="flex">
-              <h3>Paid Attention</h3>
-            </div>
-            <svg aria-hidden="true" focusable="false" width="1em" height="1em" fill="#00adb5" viewbox="0 0 12 12"><path d="M0 3h12.002v2H0zm0 5h12.002v2H0z"></path></svg>
-          </header>
+        <div class="flex">
+            <!-- <h3 class="navT">Paid Attention</h3> -->
+        </div>
+        <img class="logo" src="/accent.f471ba6f.png">
+        <svg aria-hidden="true" focusable="false" width="1em" height="1em" fill="#00adb5" viewbox="0 0 12 12">
+            <path d="M0 3h12.002v2H0zm0 5h12.002v2H0z"></path>
+        </svg>
+    </header>
 
     <div id="loading">
-        <div class="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        <div class="lds-grid">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <br>
         <p>
             Loading...
@@ -72,7 +87,16 @@
             </h2>
             <div class="progressBars">
                 <div class="progressBar">
-                    <div class="ldBar label-center" id="ldBar0" data-value="50" data-preset="circle"></div>
+                    <h4 class="leightFont">Progress to next reward - 25 points:</h4>
+                    <div class="ldBar label-center" id="ldBar0" data-value="50" data-preset="fan" data-stroke="#00adb5"></div>
+                    <div id="redeem" class="button buttonP" style="margin-left: auto; margin-right: auto; display: none;">
+                        Redeem
+                        <div class="arrowContainer">
+                            <svg aria-hidden="true" focusable="false" width="1em" height="1em" fill="currentColor" viewbox="0 0 36 36" style="display:block">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M18.2354 2H24.2711L36 18L24.2711 34H18.2354L28.1237 20.56H0V15.44H28.1237L18.2354 2Z" fill="currentColor"></path>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
