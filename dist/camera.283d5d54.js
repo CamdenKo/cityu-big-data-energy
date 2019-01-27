@@ -54313,10 +54313,18 @@ const incrementPoints = wait => {
 };
 
 let lowestAmount = 3000;
-let highestAmount = 7000;
+let highestAmount = 6000;
 
 const pointLoop = () => {
-  incrementPoints(randInt(lowestAmount, highestAmount));
+  console.log(lowestAmount, highestAmount);
+
+  if (points < 5) {
+    incrementPoints(randInt(lowestAmount, highestAmount));
+  } else if (points === 5) {
+    setTimeout(() => incrementPoints(randInt(10, 10)), 5000);
+  } else {
+    incrementPoints(randInt(1500, 1500));
+  }
 };
 
 const genProgressBar = (id, points, maxPoints) => {
@@ -54338,20 +54346,9 @@ const initBars = () => {
   }
 };
 
-const timeFrame = () => {
-  lowestAmount = 6000;
-  highestAmount = 7000;
-  const delay = 10000;
-  setTimeout(() => {
-    lowestAmount = 500;
-    highestAmount = 1500;
-  }, delay);
-};
-
 const init = () => {
   pointLoop();
   initBars();
-  timeFrame();
 };
 
 init();
