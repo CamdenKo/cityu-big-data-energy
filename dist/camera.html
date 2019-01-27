@@ -44,7 +44,7 @@
 <body>
     <div id="info" style="display:none">
     </div>
-    <header>
+    <header id="header">
         <div class="flex">
             <!-- <h3 class="navT">Paid Attention</h3> -->
         </div>
@@ -87,9 +87,9 @@
             </h2>
             <div class="progressBars">
                 <div class="progressBar">
-                    <h4 class="leightFont">Progress to next reward - 25 points:</h4>
+                    <h4 class="leightFont">Next reward at 25 points</h4>
                     <div class="ldBar label-center" id="ldBar0" data-value="50" data-preset="fan" data-stroke="#00adb5"></div>
-                    <div id="redeem" class="button buttonP" style="margin-left: auto; margin-right: auto; display: none;">
+                    <div id="redeem" class="button buttonP" style="margin-left: auto; margin-right: auto; display: none;" onclick="document.getElementById('qr').className = 'visible'">
                         Redeem
                         <div class="arrowContainer">
                             <svg aria-hidden="true" focusable="false" width="1em" height="1em" fill="currentColor" viewbox="0 0 36 36" style="display:block">
@@ -98,9 +98,59 @@
                         </div>
                     </div>
                 </div>
+                <div>
+                    <div style="padding-top: 75px" id="burrito">
+                        <img src="/kebab.25691d9b.png" style="width: 50%">
+                        <br>
+                        <br>
+                        25% off at Kebob Station
+                    </div>
+                </div>
             </div>
         </section>
     </div>
+    <footer class="futureDeals">
+        <div class="foodContainer" id="deal1">
+            <img class="food" src="/rice.da31df7f.png" style="">
+            <br>
+            <br>
+            <span class="foodSubtitle">
+                BOHO at Yoshinoya
+                <br>
+                30 points
+            </span>
+        </div>
+        <div class="foodContainer" id="deal2">
+            <img class="food" src="/ice.7573e50e.png" style="">
+            <br>
+            <br>
+            <span class="foodSubtitle">
+                1 hour free skate rentals at Festival Walk
+                <br>
+                20 points
+            </span>
+        </div>
+        <div class="foodContainer" id="deal3">
+            <img class="food" src="/pong.220eeecd.png" style="">
+            <br>
+            <br>
+            <span class="foodSubtitle">
+                Free Sports Facility booking
+                <br>
+                10 points
+            </span>
+        </div>
+    </footer>
+    <script>const delay = 300;
+
+const qrClick = () => {
+  document.getElementById('redeem').style.display = 'none';
+  document.getElementById('qr').style.display = 'none';
+  document.getElementById('deal1').style.opacity = 1;
+  setTimeout(() => document.getElementById('deal2').style.opacity = 1, delay);
+  setTimeout(() => document.getElementById('deal3').style.opacity = 1, delay * 2);
+};</script>
+    <img id="qr" src="/qr.ca87fcd1.jpg" onclick="qrClick()">
     <script src="/loading-bar.4c1cf2d3.js"></script>
     <script src="/camera.283d5d54.js"></script>
     <script src="/odometer.b6aa4380.js"></script>

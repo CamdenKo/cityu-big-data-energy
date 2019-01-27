@@ -54284,12 +54284,15 @@ const calcPercent = (cur, max) => {
   return Math.round(100 * cur / max);
 };
 
+let isClean = true;
+
 const updateProgressBar = (bar, points) => {
   bar.percent = calcPercent(points, bar.maxPoints);
   bar.instance.set(bar.percent);
 
   if (bar.percent === 100) {
     document.getElementById('redeem').style.display = 'flex';
+    isClean = false;
   }
 
   return bar;
@@ -54305,7 +54308,7 @@ const incrementPoints = wait => {
       });
     }
 
-    pointLoop();
+    if (isClean) pointLoop();
   }, wait);
 };
 

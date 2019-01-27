@@ -52,7 +52,7 @@ canvas {
   animation-name: fadeIn;
   animation-duration: 1.5s;
   animation-timing-function: ease-in;
-  animation-delay: 3.2s;
+  animation-delay: 4s;
   animation-fill-mode: forwards;
   width: 100%;
   height: 500px;
@@ -60,6 +60,7 @@ canvas {
 
 .points {
   color: var(--primary-color);
+  font-size: 40px;
   font-family: var(--title-font);
 }
 
@@ -83,4 +84,45 @@ canvas {
 
 .leightFont {
   font-weight: 300;
+  font-size: 30px;
+}
+
+.food {
+  height: 118px;
+  /* display: none; */
+}
+
+.foodSubtitle {
+  font-family: var(--secondary-font);
+  text-align: center;
+}
+
+.foodContainer {
+  text-align: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity ease-in 1s;
+}
+
+.futureDeals {
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  width: 100%;
+  bottom: 38px;
+  /* display: none; */
+}
+
+#qr {
+  top: 238px;
+  position: absolute;
+  left: 750px;
+  height: 300px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity ease-in 1s;
+}
+
+.visible {
+  opacity: 1 !important;
 }

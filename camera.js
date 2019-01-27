@@ -319,12 +319,14 @@ const calcPercent = (cur, max) => {
   if (cur >= max) return 100
   return Math.round(100 * cur / max)
 }
+let isClean = true
 
 const updateProgressBar = (bar, points) => {
   bar.percent = calcPercent(points, bar.maxPoints)
   bar.instance.set(bar.percent)
   if (bar.percent === 100) {
     document.getElementById('redeem').style.display = 'flex';
+    isClean = false
   }
   return bar
 }
@@ -338,7 +340,7 @@ const incrementPoints = (wait) => {
         updateProgressBar(bar, points)
       })
     }
-    pointLoop()
+    if (isClean) pointLoop()
   }, wait)
 }
 let lowestAmount = 3000
